@@ -1,0 +1,39 @@
+alias AKS_LOGIN='az account set -s $AZ_SUBSCRIPTION  && az aks get-credentials -n $AZ_PROJECT-k8s-euw-aks-01-$AZ_ENVIRONMENT -g $AZ_PROJECT-k8s-euw-01-$AZ_ENVIRONMENT -f $KUBECONFIG --overwrite-existing'
+
+alias AKS_VABANK='export KUBECONFIG=~/.kube/aks_vabank && AZ_PROJECT=vabank && source ~/.feed_vabank'
+alias AKS_VABANK_DEV='AZ_SUBSCRIPTION=sc-13375-vabank-dev && AZ_ENVIRONMENT=dev'
+alias AKS_VABANK_UAT='AZ_SUBSCRIPTION=sc-13375-vabank-uat && AZ_ENVIRONMENT=uat'
+alias AKS_VABANK_XYZ='AZ_SUBSCRIPTION=sc-13375-vabank-xyz && AZ_ENVIRONMENT=xyz'
+alias AKS_VABANK_LOGIN='AKS_VABANK && AKS_VABANK_XYZ && AKS_LOGIN && AKS_VABANK_UAT && AKS_LOGIN && AKS_VABANK_DEV && AKS_LOGIN --admin'
+
+alias AKS_CARE='export KUBECONFIG=~/.kube/aks_care && AZ_PROJECT=care && source ~/.feed_care'
+alias AKS_CARE_DEV='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-dev && AZ_ENVIRONMENT=dev'
+alias AKS_CARE_UAT='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-uat && AZ_ENVIRONMENT=uat'
+alias AKS_CARE_XYZ='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-xyz && AZ_ENVIRONMENT=xyz'
+alias AKS_CARE_LOGIN='AKS_CARE && AKS_CARE_UAT && AKS_LOGIN && AKS_CARE_XYZ && AKS_LOGIN && AKS_CARE_DEV && AKS_LOGIN --admin'
+
+alias k='kubectl'
+alias k-resources="k get deployments -o go-template --template='{{range .items}}{{.metadata.name}}{{\";\"}}{{range .spec.template.spec.containers}}{{.resources.requests.memory}}{{\";\"}}{{.resources.limits.memory}}{{\";\"}}{{.resources.requests.cpu}}{{\"\\n\"}}{{end}}{{end}}'"
+
+alias di='cd ~/allegropay/devops/ops-azure-infrastructure'
+alias da='cd ~/allegropay/devops/ops-azure-core-automation'
+alias ndi='di && nvim .'
+alias nda='da && nvim .'
+
+alias tdi='tmux new-session -t di'
+alias tda='tmux new-session -t da'
+
+alias d='cd ~/allegropay/devops'
+alias ap='cd ~/allegropay'
+
+export DOCKER_HOST=tcp://localhost:2375
+
+export PATH=$PATH:$HOME/.dotnet/tools
+export PATH=$PATH:$HOME/tools/buildkit/bin
+export PATH=$PATH:/home/mromanow/.linkerd2/bin
+export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+
+export ASPNETCORE_ENVIRONMENT="Development"
+
+AKS_VABANK
+
