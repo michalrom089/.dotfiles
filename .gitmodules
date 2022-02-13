@@ -1,0 +1,3 @@
+[submodule "gruvbox-windows-terminal"]
+	path = gruvbox-windows-terminal
+	url = https://github.com/russdb/gruvbox-windows-terminal.git
