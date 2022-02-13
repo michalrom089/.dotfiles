@@ -11,7 +11,7 @@ export DOCKER_HOST="tcp://localhost:2375"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gruvbox"
+ZSH_THEME="robbyrussell"
 SOLARIZED_THEME="dark"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -96,7 +96,6 @@ export EDITOR='nvim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-AKS_VABANK
 # kubectx vabank-k8s-euw-aks-01-dev-admin &>/dev/null
 
 source $HOME/.zsh_profile
