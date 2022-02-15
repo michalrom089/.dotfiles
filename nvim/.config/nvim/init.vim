@@ -19,6 +19,7 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'gruvbox-community/gruvbox'
 Plug 'ryanoasis/vim-devicons'
+Plug 'mhinz/vim-startify'
 
 " prettier
 Plug 'sbdchd/neoformat'

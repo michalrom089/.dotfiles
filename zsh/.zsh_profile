@@ -12,13 +12,19 @@ alias AKS_CARE_UAT='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-uat && AZ_ENVIRONMENT
 alias AKS_CARE_XYZ='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-xyz && AZ_ENVIRONMENT=xyz'
 alias AKS_CARE_LOGIN='AKS_CARE && AKS_CARE_UAT && AKS_LOGIN && AKS_CARE_XYZ && AKS_LOGIN && AKS_CARE_DEV && AKS_LOGIN --admin'
 
+# kubectl aliases
 alias k='kubectl'
+alias kx='kubectx'
+alias kn='kubens'
+alias kp='kubectl get pods'
+alias kd='kubectl get deployments'
 alias k-resources="k get deployments -o go-template --template='{{range .items}}{{.metadata.name}}{{\";\"}}{{range .spec.template.spec.containers}}{{.resources.requests.memory}}{{\";\"}}{{.resources.limits.memory}}{{\";\"}}{{.resources.requests.cpu}}{{\"\\n\"}}{{end}}{{end}}'"
 
 alias di='cd ~/allegropay/devops/ops-azure-infrastructure'
 alias da='cd ~/allegropay/devops/ops-azure-core-automation'
 alias ndi='di && nvim .'
 alias nda='da && nvim .'
+bindkey -s ^f "tmux-sessionizer\n"
 
 alias tdi='tmux new-session -t di'
 alias tda='tmux new-session -t da'
