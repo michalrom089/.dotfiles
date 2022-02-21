@@ -24,6 +24,8 @@ Plug 'mhinz/vim-startify'
 " prettier
 Plug 'sbdchd/neoformat'
 
+Plug 'preservim/vimux'
+
 call plug#end()
 
 "" Turn-on dracula color scheme
