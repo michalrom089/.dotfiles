@@ -1,3 +1,5 @@
+nnoremap Q <c-q>
+
 nnoremap <C-Left> :call AfPPAlternatePluthPluth()<CR>
 nnoremap <C-Up> :call AfPPAlternate()<CR>
 inoremap <C-Left> <esc>:call AfPPAlternatePluthPluth()<CR>
