@@ -25,6 +25,7 @@ Plug 'mhinz/vim-startify'
 Plug 'sbdchd/neoformat'
 
 Plug 'preservim/vimux'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 

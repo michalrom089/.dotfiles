@@ -52,3 +52,5 @@ set noshowmode
 
 " relative numbers
 set relativenumber
+
+
