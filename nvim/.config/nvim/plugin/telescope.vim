@@ -10,3 +10,7 @@ nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>fb :lua require('telescope').extensions.file_browser.file_browser()<CR>
 
 nnoremap <leader>vrc :lua require('mromanow.telescope').search_dotfiles({ hidden = true })<CR>
+
+nmap <Leader>vp :VimuxPromptCommand<CR>
+nmap <Leader>vl :VimuxRunLastCommand<CR>
+

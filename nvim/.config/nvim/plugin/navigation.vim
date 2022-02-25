@@ -41,6 +41,3 @@ endfunction
 command! ClearQuickfixList call ClearQuickfixList()
 nmap <leader>cf :ClearQuickfixList<cr>
 
-
-map <Leader>vp :VimuxPromptCommand<CR>
-map <leader>vq :VimuxCloseRunner<CR>
