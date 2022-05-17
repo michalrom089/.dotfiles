@@ -53,4 +53,9 @@ set noshowmode
 " relative numbers
 set relativenumber
 
+" makes Neovim use the system's (i.e Window's) clipboard by default.
+set clipboard=unnamedplus
+
+" visible whitechars
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣
 

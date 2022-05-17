@@ -12,6 +12,11 @@ alias AKS_CARE_UAT='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-uat && AZ_ENVIRONMENT
 alias AKS_CARE_XYZ='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-xyz && AZ_ENVIRONMENT=xyz'
 alias AKS_CARE_LOGIN='AKS_CARE && AKS_CARE_UAT && AKS_LOGIN && AKS_CARE_XYZ && AKS_LOGIN && AKS_CARE_DEV && AKS_LOGIN --admin'
 
+alias AKS_DEVOPS='export KUBECONFIG=~/.kube/aks_devops && AZ_PROJECT=devops'
+alias AKS_DEVOPS_XYZ='AZ_SUBSCRIPTION=sc-16992-allegropay-devops && AZ_ENVIRONMENT=xyz'
+alias AKS_DEVOPS_DEV='AZ_SUBSCRIPTION=sc-16992-allegropay-devops && AZ_ENVIRONMENT=dev'
+alias AKS_DEVOPS_LOGIN='AKS_DEVOPS && AKS_DEVOPS_DEV && AKS_LOGIN --admin && AKS_DEVOPS_XYZ && AKS_LOGIN --admin'
+
 # kubectl aliases
 alias k='kubectl'
 alias kx='kubectx'
@@ -37,10 +42,13 @@ export DOCKER_HOST=tcp://localhost:2375
 export PATH=$PATH:$HOME/.dotnet/tools
 export PATH=$PATH:$HOME/tools/buildkit/bin
 export PATH=$PATH:/home/mromanow/.linkerd2/bin
+export PATH=$PATH:/home/mromanow/go/bin
 export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 export PATH=$PATH:$HOME/.local/bin
 
+export DOTNET_ROOT=$HOME/.dotnet/
+export PATH=$PATH:$DOTNET_ROOT
 export ASPNETCORE_ENVIRONMENT="Development"
 
-AKS_VABANK
+AKS_DEVOPS
 
