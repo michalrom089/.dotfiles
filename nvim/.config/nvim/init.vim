@@ -27,6 +27,9 @@ Plug 'sbdchd/neoformat'
 Plug 'preservim/vimux'
 Plug 'tpope/vim-commentary'
 
+" markdown
+Plug 'davidgranstrom/nvim-markdown-preview'
+
 call plug#end()
 
 "" Turn-on dracula color scheme
