@@ -100,4 +100,7 @@ export EDITOR='nvim'
 
 source $HOME/.zsh_profile
 
+git config --global push.autoSetupRemote true
+git config --global pull.rebase true
+
 

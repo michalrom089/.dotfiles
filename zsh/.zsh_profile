@@ -1,21 +1,35 @@
-alias AKS_LOGIN='az account set -s $AZ_SUBSCRIPTION  && az aks get-credentials -n $AZ_PROJECT-k8s-euw-aks-01-$AZ_ENVIRONMENT -g $AZ_PROJECT-k8s-euw-01-$AZ_ENVIRONMENT -f $KUBECONFIG --overwrite-existing && kubelogin convert-kubeconfig -l azurecli --tenant-id 3e874599-7073-43a9-9c53-95abd658d2d6'
+alias AKS_LOGIN='az account set -s $AZ_SUBSCRIPTION  && az aks get-credentials -n $AZ_PROJECT-k8s-$AZ_LOCATION-aks-01-$AZ_ENVIRONMENT -g $AZ_PROJECT-k8s-$AZ_LOCATION-01-$AZ_ENVIRONMENT -f $KUBECONFIG --overwrite-existing && kubelogin convert-kubeconfig -l azurecli --tenant-id 3e874599-7073-43a9-9c53-95abd658d2d6'
+alias AKS_LOGIN_ADMIN='az account set -s $AZ_SUBSCRIPTION  && az aks get-credentials -n $AZ_PROJECT-k8s-$AZ_LOCATION-aks-01-$AZ_ENVIRONMENT -g $AZ_PROJECT-k8s-$AZ_LOCATION-01-$AZ_ENVIRONMENT -f $KUBECONFIG --overwrite-existing --admin && kubelogin convert-kubeconfig -l azurecli --tenant-id 3e874599-7073-43a9-9c53-95abd658d2d6'
+alias ACR_HELM_LOGIN='az acr login --name allegropaydevops --expose-token --output tsv --query accessToken | xargs helm registry login allegropaydevops.azurecr.io  --username "00000000-0000-0000-0000-000000000000"  --password'
 
 alias AKS_VABANK='export KUBECONFIG=~/.kube/aks_vabank && AZ_PROJECT=vabank && source ~/.feed_vabank'
-alias AKS_VABANK_DEV='AZ_SUBSCRIPTION=sc-13375-vabank-dev && AZ_ENVIRONMENT=dev'
-alias AKS_VABANK_UAT='AZ_SUBSCRIPTION=sc-13375-vabank-uat && AZ_ENVIRONMENT=uat'
-alias AKS_VABANK_XYZ='AZ_SUBSCRIPTION=sc-13375-vabank-xyz && AZ_ENVIRONMENT=xyz'
-alias AKS_VABANK_LOGIN='AKS_VABANK && AKS_VABANK_XYZ && AKS_LOGIN && AKS_VABANK_UAT && AKS_LOGIN && AKS_VABANK_DEV && AKS_LOGIN'
+alias AKS_VABANK_EUW_DEV='AZ_SUBSCRIPTION=sc-13375-vabank-dev && AZ_ENVIRONMENT=dev && AZ_LOCATION=euw'
+alias AKS_VABANK_EUW_UAT='AZ_SUBSCRIPTION=sc-13375-vabank-uat && AZ_ENVIRONMENT=uat && AZ_LOCATION=euw'
+alias AKS_VABANK_EUN_UAT='AZ_SUBSCRIPTION=sc-13375-vabank-uat && AZ_ENVIRONMENT=uat && AZ_LOCATION=eun'
+alias AKS_VABANK_EUW_XYZ='AZ_SUBSCRIPTION=sc-13375-vabank-xyz && AZ_ENVIRONMENT=xyz && AZ_LOCATION=euw'
+alias AKS_VABANK_EUN_LOGIN='AKS_VABANK && AKS_VABANK_EUN_UAT && AKS_LOGIN'
+alias AKS_VABANK_EUW_LOGIN='AKS_VABANK && AKS_VABANK_EUW_XYZ && AKS_LOGIN && AKS_VABANK_EUW_UAT && AKS_LOGIN && AKS_VABANK_EUW_DEV && AKS_LOGIN'
+alias AKS_VABANK_LOGIN='AKS_VABANK_EUN_LOGIN && AKS_VABANK_EUW_LOGIN'
 
 alias AKS_CARE='export KUBECONFIG=~/.kube/aks_care && AZ_PROJECT=care && source ~/.feed_care'
-alias AKS_CARE_DEV='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-dev && AZ_ENVIRONMENT=dev'
-alias AKS_CARE_UAT='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-uat && AZ_ENVIRONMENT=uat'
-alias AKS_CARE_XYZ='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-xyz && AZ_ENVIRONMENT=xyz'
-alias AKS_CARE_LOGIN='AKS_CARE && AKS_CARE_UAT && AKS_LOGIN && AKS_CARE_XYZ && AKS_LOGIN && AKS_CARE_DEV && AKS_LOGIN'
+alias AKS_CARE_EUW_DEV='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-dev && AZ_ENVIRONMENT=dev && AZ_LOCATION=euw'
+alias AKS_CARE_EUW_UAT='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-uat && AZ_ENVIRONMENT=uat && AZ_LOCATION=euw'
+alias AKS_CARE_EUW_XYZ='AZ_SUBSCRIPTION=sc-15556-AlleInsurance-xyz && AZ_ENVIRONMENT=xyz && AZ_LOCATION=euw'
+alias AKS_CARE_EUW_LOGIN='AKS_CARE && AKS_CARE_EUW_UAT && AKS_LOGIN && AKS_CARE_EUW_XYZ && AKS_LOGIN && AKS_CARE_EUW_DEV && AKS_LOGIN'
+alias AKS_CARE_LOGIN='AKS_CARE_EUW_LOGIN'
+
+alias AKS_DEPO='export KUBECONFIG=~/.kube/aks_depo && AZ_PROJECT=depo && source ~/.feed_depo'
+alias AKS_DEPO_EUW_DEV='AZ_SUBSCRIPTION=sc-19499-depo-dev && AZ_ENVIRONMENT=dev && AZ_LOCATION=euw'
+alias AKS_DEPO_EUW_UAT='AZ_SUBSCRIPTION=sc-19499-depo-uat && AZ_ENVIRONMENT=uat && AZ_LOCATION=euw'
+alias AKS_DEPO_EUW_XYZ='AZ_SUBSCRIPTION=sc-19499-depo-xyz && AZ_ENVIRONMENT=xyz && AZ_LOCATION=euw'
+alias AKS_DEPO_EUW_LOGIN='AKS_DEPO && AKS_DEPO_EUW_UAT && AKS_LOGIN && AKS_DEPO_EUW_XYZ && AKS_LOGIN && AKS_DEPO_EUW_DEV && AKS_LOGIN'
+alias AKS_DEPO_LOGIN='AKS_DEPO_EUW_LOGIN'
 
 alias AKS_DEVOPS='export KUBECONFIG=~/.kube/aks_devops && AZ_PROJECT=devops'
-alias AKS_DEVOPS_XYZ='AZ_SUBSCRIPTION=sc-16992-allegropay-devops && AZ_ENVIRONMENT=xyz'
-alias AKS_DEVOPS_DEV='AZ_SUBSCRIPTION=sc-16992-allegropay-devops && AZ_ENVIRONMENT=dev1'
-alias AKS_DEVOPS_LOGIN='AKS_DEVOPS && AKS_DEVOPS_DEV && (AKS_LOGIN || true) && AKS_DEVOPS_XYZ && AKS_LOGIN'
+alias AKS_DEVOPS_EUW_XYZ='AZ_SUBSCRIPTION=sc-16992-allegropay-devops && AZ_ENVIRONMENT=xyz && AZ_LOCATION=euw'
+alias AKS_DEVOPS_EUW_DEV='AZ_SUBSCRIPTION=sc-16992-allegropay-devops && AZ_ENVIRONMENT=dev && AZ_LOCATION=euw'
+alias AKS_DEVOPS_EUW_LOGIN='AKS_DEVOPS && AKS_DEVOPS_EUW_DEV && (AKS_LOGIN || true) && AKS_DEVOPS_EUW_XYZ && AKS_LOGIN'
+alias AKS_DEVOPS_LOGIN='AKS_DEVOPS_EUW_LOGIN'
 
 # kubectl aliases
 alias k='kubectl'
@@ -36,6 +50,8 @@ alias tda='tmux new-session -t da'
 
 alias d='cd ~/allegropay/devops'
 alias ap='cd ~/allegropay'
+
+alias lsm='ls -l --block-size=M'
 
 export DOCKER_HOST=tcp://localhost:2375
 

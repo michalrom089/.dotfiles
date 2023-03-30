@@ -14,3 +14,5 @@ nnoremap <leader>vrc :lua require('mromanow.telescope').search_dotfiles({ hidden
 nmap <Leader>vp :VimuxPromptCommand<CR>
 nmap <Leader>vl :VimuxRunLastCommand<CR>
 
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gu :diffget //2<CR>

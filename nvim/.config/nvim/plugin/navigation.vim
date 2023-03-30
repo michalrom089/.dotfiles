@@ -44,3 +44,7 @@ nmap <Leader>cf :ClearQuickfixList<cr>
 nmap <Leader>gh :diffget //3<CR>
 nmap <Leader>gu :diffget //2<CR>
 nmap <Leader>gs :G<CR>
+
+nmap <Leader>gfp :G commit -m "fix"<CR>
+nmap <leader>gfp  :Git commit -am fix \| G push "<CR>
+

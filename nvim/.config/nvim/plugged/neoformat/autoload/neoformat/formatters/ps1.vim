@@ -5,7 +5,7 @@ endfunction
 function! neoformat#formatters#ps1#PowerShellBeautifier() abort
     return {
         \ 'exe'   : 'Edit-DTWBeautifyScript',
-        \ 'args'  : ["-IndentType FourSpaces", "-StandardOutput"],
+        \ 'args'  : ["-IndentType TwoSpaces", "-StandardOutput"],
         \ 'stdin' : 0,
         \ }
 endfunction

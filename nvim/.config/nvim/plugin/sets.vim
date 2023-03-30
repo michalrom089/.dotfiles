@@ -7,15 +7,15 @@ let mapleader = " "
 set termguicolors
 
 " number of spaces in a <Tab>
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set expandtab
 
 " enable autoindents
 set smartindent
 
 " number of spaces used for autoindents
-set shiftwidth=4
+set shiftwidth=2
 
 " adds line numbers
 set number
@@ -59,3 +59,5 @@ set clipboard=unnamedplus
 " visible whitechars
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣
 
+set nofixendofline
+set noendofline

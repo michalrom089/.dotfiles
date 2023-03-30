@@ -26,6 +26,7 @@ Plug 'sbdchd/neoformat'
 
 Plug 'preservim/vimux'
 Plug 'tpope/vim-commentary'
+Plug 'ntpeters/vim-better-whitespace'
 
 " markdown
 Plug 'davidgranstrom/nvim-markdown-preview'
