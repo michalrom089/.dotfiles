@@ -7,6 +7,9 @@ export ZSH="/home/mromanow/.oh-my-zsh"
 export DOTFILES=$HOME/.dotfiles
 export DOCKER_HOST="tcp://localhost:2375"
 
+HISTSIZE=11000
+HISTFILESIZE=11000
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME

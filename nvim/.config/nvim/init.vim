@@ -37,3 +37,5 @@ call plug#end()
 syntax on
 colorscheme gruvbox
 
+let g:coc_node_path = '/home/mromanow/.nvm/versions/node/v14.16.0/bin/node'
+

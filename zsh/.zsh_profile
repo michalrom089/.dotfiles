@@ -25,7 +25,7 @@ alias AKS_DEPO_EUW_XYZ='AZ_SUBSCRIPTION=sc-19499-depo-xyz && AZ_ENVIRONMENT=xyz 
 alias AKS_DEPO_EUW_LOGIN='AKS_DEPO && AKS_DEPO_EUW_UAT && AKS_LOGIN && AKS_DEPO_EUW_XYZ && AKS_LOGIN && AKS_DEPO_EUW_DEV && AKS_LOGIN'
 alias AKS_DEPO_LOGIN='AKS_DEPO_EUW_LOGIN'
 
-alias AKS_DEVOPS='export KUBECONFIG=~/.kube/aks_devops && AZ_PROJECT=devops'
+alias AKS_DEVOPS='export KUBECONFIG=~/.kube/aks_devops && AZ_PROJECT=devops && source ~/.feed_vabank'
 alias AKS_DEVOPS_EUW_XYZ='AZ_SUBSCRIPTION=sc-16992-allegropay-devops && AZ_ENVIRONMENT=xyz && AZ_LOCATION=euw'
 alias AKS_DEVOPS_EUW_DEV='AZ_SUBSCRIPTION=sc-16992-allegropay-devops && AZ_ENVIRONMENT=dev && AZ_LOCATION=euw'
 alias AKS_DEVOPS_EUW_LOGIN='AKS_DEVOPS && AKS_DEVOPS_EUW_DEV && (AKS_LOGIN || true) && AKS_DEVOPS_EUW_XYZ && AKS_LOGIN'
@@ -53,6 +53,11 @@ alias ap='cd ~/allegropay'
 
 alias lsm='ls -l --block-size=M'
 
+alias tup="dotnet tool update paket && dotnet tool update fake-cli"
+alias pup='dotnet paket update --keep-major'
+alias pupap='dotnet paket update --filter "(FinAi|Vabank|AllegroPay|Allegro|Deposits).*"'
+alias cupap='dotnet outdated -u -n -inc "FinAi" -inc "VAbank" -inc "Allegro"'
+
 export DOCKER_HOST=tcp://localhost:2375
 
 export PATH=$PATH:$HOME/.dotnet/tools
@@ -62,6 +67,8 @@ export PATH=$PATH:/home/mromanow/.linkerd2/bin
 export PATH=$PATH:/home/mromanow/go/bin
 export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.istioctl/bin
+export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 
 export DOTNET_ROOT=$HOME/.dotnet/
 export PATH=$PATH:$DOTNET_ROOT
