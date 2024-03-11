@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-STOW_FOLDERS="nvim,tmux,zsh"
+STOW_FOLDERS="nvim,tmux,zsh,bin"
 DOTFILES=$HOME/.dotfiles
 
 pushd $DOTFILES
