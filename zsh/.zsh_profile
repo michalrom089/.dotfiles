@@ -60,7 +60,7 @@ alias pup='dotnet paket update --keep-major'
 alias pupap='dotnet paket update --filter "(FinAi|Vabank|AllegroPay|Allegro|Deposits).*"'
 alias cupap='dotnet outdated -u -n -inc "FinAi" -inc "VAbank" -inc "Allegro"'
 
-export DOCKER_HOST=tcp://localhost:2375
+export skip_global_compinit=1
 
 export PATH=$PATH:$HOME/.local/share/nvim-linux64/bin
 export PATH=$PATH:$HOME/.dotnet/tools
@@ -72,7 +72,7 @@ export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
 
-export BROWSER='/mnt/c//Program\ Files/Mozilla Firefox/firefox/exe'
+export BROWSER='/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'
 
 export DOTNET_ROOT=$HOME/.dotnet/
 export PATH=$PATH:$DOTNET_ROOT

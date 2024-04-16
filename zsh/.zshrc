@@ -5,7 +5,6 @@ export NVM_DIR="$HOME/.nvm"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mromanow/.oh-my-zsh"
 export DOTFILES=$HOME/.dotfiles
-export DOCKER_HOST="tcp://localhost:2375"
 
 HISTSIZE=11000
 HISTFILESIZE=11000
@@ -71,12 +70,15 @@ SOLARIZED_THEME="dark"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autocomplete)
 
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+autoload -U compinit && compinit
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -111,3 +113,7 @@ git config --global pull.rebase true
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux new-session -A -s default
+fi

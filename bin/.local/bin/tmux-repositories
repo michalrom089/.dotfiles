@@ -6,6 +6,7 @@ projectMapping=(
     ["VAbank"]="vabank"
     ["AlleCare"]="care"
     ["AlleDeposits"]="depo"
+    ["Periscope"]="peri"
     ["VAbank.Infrastructure"]="depo"
 )
 # projects=${(@k)projectMapping}
@@ -14,7 +15,7 @@ projects=${!projectMapping[@]}
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(printf "%s " $projects | xargs -d ' ' -I{} az repos list --project {} | jq '.[].sshUrl' | fzf | tr -d "\"")
+    selected=$(printf "%s " $projects | xargs -d ' ' -I{} az repos list --project {} | jq '.[].remoteUrl' | tr -d "\"" | fzf)
 fi
 
 if [[ -z $selected ]]; then
@@ -22,7 +23,7 @@ if [[ -z $selected ]]; then
 fi
 
 repo_name=$(basename $selected)
-projectName=$(basename $(dirname $selected))
+projectName=$(basename $(dirname $(dirname $selected)))
 parent_dir="$HOME/allegropay/${projectMapping[$projectName]}"
 parent_dir_name=$(basename $parent_dir)
 
@@ -37,18 +38,3 @@ if ! test -d $parent_dir/$repo_name; then
     git clone $selected
     popd
 fi
-
-
-selected_name="$parent_dir_name/$repo_name"
-tmux_running=$(pgrep tmux)
-
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
-    exit 0
-fi
-
-if ! tmux has-session -t $selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected nvim
-fi
-
-tmux switch-client -t $selected_name || tmux attach-session -t $selected_name
